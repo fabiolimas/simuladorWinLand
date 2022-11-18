@@ -21,7 +21,7 @@
                             <a href="/credito-imobiliario" class="btn btn-danger">Crédito Imobiliário <i class="fas fa-angle-double-right"></i></a>
                         </div>
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-danger">Crédito com garantia <i class="fas fa-angle-double-right"></i></a>
+                            <a href="/credito-com-garantia" class="btn btn-danger">Crédito com garantia <i class="fas fa-angle-double-right"></i></a>
                         </div>
                     </div>
             </div>

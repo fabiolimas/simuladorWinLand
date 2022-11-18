@@ -7,18 +7,18 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <h2>Simulador de Crédito <b>Imobiliário</b></h2>
+                    <h2>Simulador de Crédito com <b>Garantia</b>
+                    </h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-7 texto">
                     <p class="subtitulo">Tipo de imóvel:
-                        <span class="red">Residencial</span>
-                        Comercial
-                        Terreno
+                       <span class="red"> Automóvel</span>
+                        Imóvel
                     </p>
                     <div class="row">
-                        <form action="{{route('simulador1')}}" method="get" class="d-flex justify-content-start formulario">
+                        <form action="{{route('simulador2')}}" method="get" class="d-flex justify-content-start formulario">
                             @csrf
                             <div class="form-group">
                                 <div class="row">
@@ -41,9 +41,14 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class=" col col-mb-6">
-                                            <label for="val_imovel" class="form-label">Valor do Imóvel</label>
+                                            <label for="val_imovel" class="form-label">Valor</label>
                                             <input type="number" class="form-control" step="any" id="val_imovel"
                                                 name="val_imovel" placeholder="R$ 750.000,00" required>
+                                        </div>
+                                        <div class=" col col-mb-6">
+                                            <label for="val_entrada" class="form-label">Entrada</label>
+                                            <input type="number" class="form-control" step="any" id="val_entrada"
+                                                name="val_entrada" placeholder="R$ 10.000,00" required>
                                         </div>
                                         <div class="col col-md-6">
                                             <label for="val_financiar" class="form-label">Valor a financiar</label>

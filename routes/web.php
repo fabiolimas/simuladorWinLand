@@ -20,8 +20,12 @@ Route::get('/', function () {
 Route::get('/credito-imobiliario', function(){
     return view('credito-imobiliario');
 });
+Route::get('/credito-com-garantia', function(){
+    return view('credito-com-garantia');
+});
 
-Route::get('/simulador', [SimuladorController::class,'index'])->name('simulador');
+Route::get('/simulador', [SimuladorController::class,'index'])->name('simulador1');
+Route::get('/simulador-garantia', [SimuladorController::class,'index2'])->name('simulador2');
 
 Auth::routes();
 

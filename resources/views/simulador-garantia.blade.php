@@ -24,6 +24,11 @@
                                         <input type="text" class="form-control" step="any" id="val_imovel"
                                             name="val_imovel" value="R$ {{ number_format($valorImovel,2,',','.') }}" readyonly>
                                     </div>
+                                    <div class=" col col-mb-6">
+                                        <label for="val_entrada" class="form-label">Entrada</label>
+                                        <input type="text" class="form-control" step="any" id="val_entrada"
+                                            name="val_entrada" value="R$ {{ number_format($valEntrada,2,',','.') }}" readyonly>
+                                    </div>
                                     <div class="col col-md-6">
                                         <label for="val_financiar" class="form-label">Valor a financiar</label>
                                         <input type="range" class="form-range" min="0" max="1000000"
