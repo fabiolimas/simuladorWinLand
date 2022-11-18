@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SimuladorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::get('/', function () {
 Route::get('/credito-imobiliario', function(){
     return view('credito-imobiliario');
 });
+
+Route::get('/simulador', [SimuladorController::class,'index'])->name('simulador');
 
 Auth::routes();
 

@@ -18,7 +18,8 @@
                         Terreno
                     </p>
                     <div class="row">
-                        <form action="#" method="post" class="d-flex justify-content-start formulario">
+                        <form action="{{route('simulador')}}" method="get" class="d-flex justify-content-start formulario">
+                            @csrf
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col col-mb-3">
@@ -40,17 +41,17 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class=" col col-mb-6">
-                                            <label for="val-imovel" class="form-label">Valor do Imóvel</label>
-                                            <input type="number" class="form-control" step="any" id="val-imovel"
-                                                name="val-imovel" placeholder="R$ 750.000,00" required>
+                                            <label for="val_imovel" class="form-label">Valor do Imóvel</label>
+                                            <input type="number" class="form-control" step="any" id="val_imovel"
+                                                name="val_imovel" placeholder="R$ 750.000,00" required>
                                         </div>
                                         <div class="col col-md-6">
-                                            <label for="val-financiar" class="form-label">Valor a financiar</label>
+                                            <label for="val_financiar" class="form-label">Valor a financiar</label>
                                             <input type="range" class="form-range" min="0" max="1000000"
-                                                step="0.01" name="val-financiar" id="val-financiar">
+                                                step="0.01" name="val_financiar" id="val_financiar">
                                             <div class="row">
                                                 <div class="col col-md-8">
-                                                    <span id="valrange">45% R$ </span>
+                                                    <span id="valrange"><div id="porcentagem"></div> R$ </span>
                                                 </div>
                                                 <div class="col col-md-4">
                                                     <span class="taxa">8,5% ao ano</span>
@@ -75,4 +76,15 @@
             </div>
         </div>
     </div>
+    <script defer src="https://unpkg.com/imask"></script>
+<script>
+    $(document).ready(function(){
+
+        var telefone = IMask(document.getElementById('telefone'),{
+            mask: '(00)0 0000-0000'
+        });
+
+    });
+</script>
 @endsection
+
