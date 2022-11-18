@@ -1,0 +1,91 @@
+/*Gerais*/
+
+body{
+    font-family:'Roboto', sans-serif;
+
+}
+main{
+    background-color: #0e0b0b;
+    height: 100vh;
+    background-image: url(/img/fundo.png);
+}
+
+.row{
+    margin: 0;
+}
+.container{
+    padding: 70px 0;
+
+
+}
+p, li{
+    color:#fff;
+    font-size: 14px;
+}
+
+
+/*boxPrincipal*/
+.box{
+
+
+    border-radius: 7px;
+     display: block;
+     margin: 115px auto;
+    color: #fff;
+
+}
+.boxb{
+
+    background: #00000070;
+    border-radius: 7px;
+     display: block;
+     margin: 92px auto;
+    color: #fff;
+
+}
+.box p{
+    color:#fff;
+}
+.col-md-7.texto {
+    margin: 0 auto;
+}
+
+.botoes{
+    display: flex;
+}
+.subtitulo{
+    text-align: left;
+}
+.botoes .btn {
+    width: 300px;
+    height: 52px;
+    line-height: 2;
+    font-size: 18px;
+    text-align: center;
+    background: #dc0101;
+}
+.red{
+    color:#dc0101;
+}
+
+
+/*formulario*/
+
+.btnform.text-center {
+    margin-top: 20px;
+}
+.formulario{
+    text-align: left;
+}
+.form-group {
+    margin-top: 20px;
+}
+
+
+span.taxa {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
