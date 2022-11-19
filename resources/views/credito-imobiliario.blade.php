@@ -22,17 +22,17 @@
                             @csrf
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col col-mb-3">
+                                    <div class="col col-mb-3 mb-2">
                                         <label for="nome" class="form-label">Nome</label>
                                         <input type="text" class="form-control" id="nome" name="nome"
                                             placeholder="João da Silva" required>
                                     </div>
-                                    <div class=" col col-mb-3">
+                                    <div class=" col col-mb-3  mb-2">
                                         <label for="email" class="form-label">E-mail</label>
                                         <input type="email" class="form-control" id="email" name="email"
                                             placeholder="joao@email.com" required>
                                     </div>
-                                    <div class=" col col-mb-3">
+                                    <div class=" col col-mb-3  mb-2">
                                         <label for="telefone" class="form-label">Telefone</label>
                                         <input type="text" class="form-control" id="telefone" name="telefone"
                                             placeholder="(41) 9 9123-4567" required>
@@ -40,20 +40,20 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class=" col col-mb-6">
+                                        <div class=" col col-mb-6  mb-2">
                                             <label for="val_imovel" class="form-label">Valor do Imóvel</label>
                                             <input type="number" class="form-control" step="any" id="val_imovel"
                                                 name="val_imovel" placeholder="R$ 750.000,00" required>
                                         </div>
-                                        <div class="col col-md-6">
+                                        <div class="col col-md-6  mb-2">
                                             <label for="val_financiar" class="form-label">Valor a financiar</label>
                                             <input type="range" class="form-range" min="0" max="1000000"
                                                 step="0.01" name="val_financiar" id="val_financiar">
                                             <div class="row">
-                                                <div class="col col-md-8">
+                                                <div class="col col-md-8 ">
                                                     <span id="valrange"><div id="porcentagem"></div> R$ </span>
                                                 </div>
-                                                <div class="col col-md-4">
+                                                <div class="col col-md-4 ">
                                                     <span class="taxa">8,5% ao ano</span>
                                                 </div>
                                             </div>

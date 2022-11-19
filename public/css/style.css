@@ -51,6 +51,7 @@ p, li{
 
 .botoes{
     display: flex;
+    flex-direction: row;
 }
 .subtitulo{
     text-align: left;
@@ -62,6 +63,7 @@ p, li{
     font-size: 18px;
     text-align: center;
     background: #dc0101;
+    margin-bottom: 13px;
 }
 .red{
     color:#dc0101;
@@ -110,5 +112,27 @@ input.form-check-input.ms-5 {
 tbody td {
     border-left: 1px solid #444;
 }
+.form-label {
+    margin-bottom: -0.5rem;
+}
+.col-md-9.box1 {
+    margin: 0 auto;
+}
+table.table.table-borderless {
+    color: #fff;
+}
 
+/*responsivo*/
 
+@media screen and (max-width: 600px) {
+    .botoes {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group input, input#nome {
+        width: -webkit-fill-available;
+    }
+    input.form-check-input.ms-5 {
+        margin-left: 27px !important;
+    }
+}
