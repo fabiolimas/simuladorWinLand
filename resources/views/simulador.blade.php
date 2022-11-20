@@ -72,7 +72,7 @@
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="120" id="p120"><label for="p120">120x</label>
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="150" id="p150"><label for="p150">150x</label>
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="180" id="p180"><label for="p180">180x</label>
-                            <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="240" checked id="p240"><label for="p240">240x</label>
+                            <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="240" id="p240"><label for="p240">240x</label>
                         </div>
                     </div>
 

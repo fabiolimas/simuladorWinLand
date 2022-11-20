@@ -23,13 +23,14 @@
                                         <label for="val_imovel" class="form-label">Valor do Imóvel</label>
                                         <input type="text" class="form-control" step="any" id="val_imovel"
                                             name="val_imovel" value="R$ {{ number_format($valorImovel, 2, ',', '.') }}"
-                                            readyonly>
+                                            readonly>
                                     </div>
+                                    <input type="hidden" id="valor" name="valor" value="{{$valorImovel}}">
                                     <div class=" col col-mb-6">
                                         <label for="val_entrada" class="form-label">Entrada</label>
                                         <input type="text" class="form-control" step="any" id="val_entrada"
                                             name="val_entrada" value="R$ {{ number_format($valEntrada, 2, ',', '.') }}"
-                                            readyonly>
+                                            readonly>
                                     </div>
                                     <div class="col col-md-6">
                                         <label for="val_financiar" class="form-label">Valor a financiar</label>
@@ -77,7 +78,7 @@
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="120" id="p120"><label for="p120">120x</label>
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="150" id="p150"><label for="p150">150x</label>
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="180" id="p180"><label for="p180">180x</label>
-                            <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="240" checked id="p240"><label for="p240">240x</label>
+                            <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="240"  id="p240"><label for="p240">240x</label>
                         </div>
                     </div>
 
@@ -98,14 +99,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <input type="hidden" id="contador" value="{{$contador=count($resultado->value)}}">
                                     @foreach ($resultado->value as $result)
                                         <tr>
                                             <th scope="row">{{ $result->cnpj8 }}</th>
                                             <td>{{ $result->InstituicaoFinanceira }}</td>
                                             <td>TR</td>
-                                            <td id="jurosano">{{ number_format($result->TaxaJurosAoAno, 2, ',', '.') }}</td>
+                                            <td id="jurosano{{$loop->index+1}}">{{ number_format($result->TaxaJurosAoAno, 2, ',', '.') }}</td>
                                             <td id="jurosmes">{{ number_format($result->TaxaJurosAoMes, 2, ',', '.') }}</td>
-                                            <td id="1parcela"></td>
+                                            <td id="parcela{{$loop->index+1}}"></td>
                                             <td id='ultimaparcela'></td>
                                         </tr>
                                     @endforeach

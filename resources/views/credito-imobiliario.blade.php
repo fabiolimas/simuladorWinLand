@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col col-md-6  mb-2">
                                             <label for="val_financiar" class="form-label">Valor a financiar</label>
-                                            <input type="range" class="form-range" min="0" max="1000000"
+                                            <input type="range" class="rang" min="0" max="1000000"
                                                 step="0.01" name="val_financiar" id="val_financiar">
                                             <div class="row">
                                                 <div class="col col-md-8 ">

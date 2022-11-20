@@ -6,9 +6,19 @@ $(document).ready(function () {
     var valorImovel = document.querySelector('#val_imovel');
     var porcentagem = document.querySelector('#porcentagem');
     //evento do valor do imovel
-    valorImovel.addEventListener('change', function () {
+    if(valorImovel.value ==''){
+        range.disabled=true;
+    }
+    valorImovel.addEventListener('keyup', function () {
         var financiavel = valorImovel.value * 45 / 100;
         var formatoMoeda = financiavel.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        if(valorImovel.value !=''){
+            range.disabled=false;
+        }else{
+            range.disabled=true;
+
+        }
+
 
         range.value = financiavel;
 
@@ -16,7 +26,12 @@ $(document).ready(function () {
         $('#val_financiar').attr('max', valorImovel.value);
 
         var percentRange = range.value / valorImovel.value;
-        resultrange.innerHTML = percentRange.toFixed(2).replace('.', '') + "% " + formatoMoeda;
+        if(valorImovel.value !=''){
+            resultrange.innerHTML = percentRange.toFixed(2).replace('.', '') + "% " + formatoMoeda;
+        }else{
+            resultrange.innerHTML="";
+        }
+
     });
     //evento de autalização input range
     range.addEventListener('change', function () {
@@ -45,21 +60,21 @@ $(document).ready(function(){
     var p180 = document.querySelector('#p180');
     var p240 = document.querySelector('#p240');
 
-    var i=1;
+
 //60x
     p60.addEventListener("click", function() {
-
+        var i=1;
         for(i;i<=contador.value;i++){
             var parcela=document.querySelector("#parcela"+i);
-            parcela.innerHTML="";
+            parcela.innerHTML=" ";
 
-       /* var totparcela=parseFloat(valor.value/p60.value);
+        var totparcela=parseFloat(valor.value/p60.value);
         var jurosano=document.querySelector('#jurosano'+i);
         var taxa=totparcela*parseFloat(jurosano.innerHTML)/100;
         var total=totparcela+=taxa
         var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-            parcela.innerHTML=totMoeda;*/
+            parcela.innerHTML=totMoeda;
         }
 
 
@@ -67,7 +82,7 @@ $(document).ready(function(){
 
     //90x
     p90.addEventListener("click", function() {
-
+        var i=1;
         for(i;i<=contador.value;i++){
             var parcela=document.querySelector("#parcela"+i);
             parcela.innerHTML="nada";
@@ -86,7 +101,7 @@ $(document).ready(function(){
 
     //120x
     p120.addEventListener("click", function() {
-
+        var i=1;
         for(i;i<=contador.value;i++){
 
             var parcela=document.querySelector("#parcela"+i);
@@ -108,7 +123,7 @@ $(document).ready(function(){
 
 //150x
 p150.addEventListener("click", function() {
-
+    var i=1;
     for(i;i<=contador.value;i++){
         var parcela=document.querySelector("#parcela"+i);
 
@@ -127,7 +142,7 @@ p150.addEventListener("click", function() {
 });
 //180x
 p180.addEventListener("click", function() {
-
+    var i=1;
     for(i;i<=contador.value;i++){
 
         var parcela=document.querySelector("#parcela"+i);
@@ -145,7 +160,7 @@ p180.addEventListener("click", function() {
 
 //240x
 p240.addEventListener("click", function() {
-
+    var i=1;
     for(i;i<=contador.value;i++){
         var parcela=document.querySelector("#parcela"+i);
 
