@@ -24,11 +24,10 @@
         crossorigin="anonymous"></script>
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/cd1b9a04c6.js" crossorigin="anonymous"></script>
-    <!--progressbar-->
-    <script src="js/progressbar.min.js"></script>
+
     <!--parallax-->
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.1/dist/simpleParallax.min.js"></script>
-    <script src="js/script.js"></script>
+
 
 </head>
 
@@ -42,4 +41,5 @@
         </main>
     </div>
 </body>
+<script src="js/script.js"></script>
 </html>

@@ -94,16 +94,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <div id="contador">{{$contador=count($resultado->value)}}</div>
+                                    <input type="hidden" id="contador" value="{{$contador=count($resultado->value)}}">
                                     @foreach ($resultado->value as $result)
 
                                         <tr>
                                             <th scope="row">{{ $result->cnpj8 }}</th>
                                             <td>{{ $result->InstituicaoFinanceira }}</td>
                                             <td>TR</td>
-                                            <td id="jurosano">{{ number_format($result->TaxaJurosAoAno, 2, ',', '.') }}</td>
+                                            <td id="jurosano{{$loop->index+1}}">{{ number_format($result->TaxaJurosAoAno, 2, ',', '.') }}</td>
                                             <td id="jurosmes">{{ number_format($result->TaxaJurosAoMes, 2, ',', '.') }}</td>
-                                            <td id="parcela1"></td>
+                                            <td id="parcela{{$loop->index+1}}"></td>
                                             <td id="ultimaparcela"></td>
                                         </tr>
                                     @endforeach
