@@ -13,9 +13,10 @@
             <div class="row">
                 <div class="col-md-7 texto">
                     <p class="subtitulo">Tipo de imóvel:
-                        <span class="red">Residencial</span>
-                        Comercial
-                        Terreno
+                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="8.85" id="residencial"><label for="residencial" class='residencial'>Residencial</label>
+                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="9.5" id="comercial"><label for="comercial" class='comercial'>Comercial</label>
+                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="8.5" id="terreno"><label for="terreno" class='terreno'>Terreno</label>
+
                     </p>
                     <div class="row">
                         <form action="{{route('simulador1')}}" method="get" class="d-flex justify-content-start formulario">
@@ -48,13 +49,14 @@
                                         <div class="col col-md-6  mb-2">
                                             <label for="val_financiar" class="form-label">Valor a financiar</label>
                                             <input type="range" class="rang" min="0" max="1000000"
-                                                step="0.01" name="val_financiar" id="val_financiar">
+                                                step="0.01" name="val_financiar" id="val_financiar" value="">
                                             <div class="row">
                                                 <div class="col col-md-8 ">
-                                                    <span id="valrange"><div id="porcentagem"></div> R$ </span>
+                                                    <span id="valrange"><div id="porcentagem"></div></span>
                                                 </div>
-                                                <div class="col col-md-4 ">
-                                                    <span class="taxa">8,5% ao ano</span>
+                                                <div class="col col-md-4">
+
+                                                    <span class="taxa"></span>
                                                 </div>
                                             </div>
 

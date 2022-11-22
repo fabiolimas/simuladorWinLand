@@ -14,8 +14,9 @@
             <div class="row">
                 <div class="col-md-7 texto">
                     <p class="subtitulo">Tipo de imóvel:
-                       <span class="red"> Automóvel</span>
-                        Imóvel
+                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="1.89" id="automovel"><label for="automovel" class='automovel'>Automovel</label>
+                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="0.72" id="imovel"><label for="imovel" class='imovel'>Imovel</label>
+
                     </p>
                     <div class="row">
                         <form action="{{route('simulador2')}}" method="get" class="d-flex justify-content-start formulario">
@@ -55,11 +56,12 @@
                                             <input type="range" class="form-range" min="0" max="1000000"
                                                 step="0.01" name="val_financiar" id="val_financiar">
                                             <div class="row">
-                                                <div class="col col-md-8">
-                                                    <span id="valrange"><div id="porcentagem"></div> R$ </span>
+                                                <div class="col col-md-8 ">
+                                                    <span id="valrange"><div id="porcentagem"></div></span>
                                                 </div>
                                                 <div class="col col-md-4">
-                                                    <span class="taxa">8,5% ao ano</span>
+
+                                                    <span class="taxa"></span>
                                                 </div>
                                             </div>
 

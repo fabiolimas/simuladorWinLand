@@ -84,11 +84,19 @@ p, li{
 
 
 span.taxa {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
 }
 input#nome {
     width: 225px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+.residencial, .comercial, .terreno {
+    margin-left: 4px;
+    cursor: pointer;
+    font-weight: bold;
 }
 input[type='range'] {
     width: 100%;

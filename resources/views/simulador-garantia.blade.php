@@ -90,25 +90,27 @@
                                 <thead>
                                     <tr>
                                         <th scope="col"></th>
-                                        <th scope="col">Banco</th>
+                                        <th scope="col">Tabela</th>
                                         <th scope="col">Correção</th>
                                         <th scope="col"> Juros a.a.</th>
-                                        <th scope="col"> Juros a.M</th>
+                                        <th scope="col"> CET anual</th>
                                         <th scope="col"> 1ª Parcela</th>
                                         <th scope="col"> 240ª Parcela</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <input type="hidden" id="contador" value="{{$contador=count($resultado->value)}}">
-                                    @foreach ($resultado->value as $result)
+                                    <input type="hidden" id="contador" value="{{$contador=count($bancos)}}">
+                                    @foreach ($bancos as $result)
+
                                         <tr>
-                                            <th scope="row">{{ $result->cnpj8 }}</th>
-                                            <td>{{ $result->InstituicaoFinanceira }}</td>
-                                            <td>TR</td>
-                                            <td id="jurosano{{$loop->index+1}}">{{ number_format($result->TaxaJurosAoAno, 2, ',', '.') }}</td>
-                                            <td id="jurosmes">{{ number_format($result->TaxaJurosAoMes, 2, ',', '.') }}</td>
+                                            <th scope="row"><img src="/img/logos/{{ $result->logo }}"></th>
+                                            <td>{{ $result->tabela }}</td>
+                                            <td>{{$result->correcao}}</td>
+                                            <td id="jurosano{{$loop->index+1}}">{{ number_format($result->taxa_juros_ano, 2, ',', '.') }}%</td>
+                                            <!--<td id="jurosmes{{$loop->index+1}}">{{ number_format($result->taxa_juros_mes, 2, ',', '.') }}</td>-->
+                                            <td id="cet{{$loop->index+1}}">{{$result->cet}}%</td>
                                             <td id="parcela{{$loop->index+1}}"></td>
-                                            <td id='ultimaparcela'></td>
+                                            <td id="ultimaparcela"></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
