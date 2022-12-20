@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Novo Banco')
+@section('title', 'Editar Banco')
 
 @section('content_header')
-<h1><i class="fas fa-university"></i> Novo Bancos</h1>
+<h1><i class="fas fa-university"></i> Editar Banco</h1>
 
      <hr>
 @stop
@@ -21,20 +21,21 @@
 
 
     </div>
-    <form action="/admin/banco" method="post" enctype="multipart/form-data">
+    <form action="/admin/update/{{$banco->id}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="form-group">
             <label for="imagae">Logo:</label>
-            <input type="file" class="form-control" name="logo" id="image" placeholder="Logo" required>
+            <input type="file" class="form-control" name="logo" id="image" value="{{$banco->logo}}">
         </div>
         <div class="form-group">
             <label for="nome">Instituição:</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da instituição" required>
+            <input type="text" class="form-control" name="nome" id="nome" value="{{$banco->nome}}">
         </div>
         <div class="form-group">
             <label for="tabela" >Tabela:</label>
             <select name="tabela" id="tabela" class="form-control" required>
-                <option value="">Selecione um tipo</option>
+                <option value="{{$banco->tabela}}">{{$banco->tabela}}</option>
                 <option value="Price">Price</option>
                 <option value="Sac">SAC</option>
 
@@ -43,7 +44,7 @@
         <div class="form-group">
             <label for="correcao" >Correção:</label>
             <select name="correcao" id="correcao" class="form-control" required>
-                <option value="">Selecione um tipo</option>
+                <option value="{{$banco->correcao}}">{{$banco->correcao}}</option>
                 <option value="TR">TR</option>
                 <option value="Poupança">Poupança</option>
 
@@ -52,16 +53,16 @@
 
         <div class="form-group">
             <label for="taxa_juros_ano">Juro ao ano:</label>
-            <input type="number" step="any" class="form-control"  name="taxa_juros_ano" id="taxa_juros_ano" placeholder="Taxa de juros ao ano" required>
+            <input type="number" step="any" class="form-control"  name="taxa_juros_ano" id="taxa_juros_ano" value="{{$banco->taxa_juros_ano}}">
         </div>
         <div class="form-group">
             <label for="cet">CET anual:</label>
-            <input type="number" step="any" class="form-control"  name="cet" id="cet" placeholder="CET anual" required>
+            <input type="number" step="any" class="form-control"  name="cet" id="cet" value="{{$banco->taxa_juros_ano}}">
         </div>
 
 
 
-        <input type="submit" class="btn btn-primary" value="Cadastrar">
+        <input type="submit" class="btn btn-primary" value="Editar">
 
     </form>
     </div>

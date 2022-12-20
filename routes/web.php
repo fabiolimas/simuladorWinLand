@@ -28,6 +28,10 @@ Route::get('/credito-com-garantia', function(){
 Route::get('/admin/bancos',[BancoController::class, 'index'])->name('bancos');
 Route::get('/admin/banco',[BancoController::class, 'create'])->name('novo-banco');
 Route::post('/admin/banco',[BancoController::class, 'storeBanco'])->name('store-banco');
+Route::get('/admin/edit-banco/{id}', [App\Http\Controllers\BancoController::class, 'editBanco'])->name('editar-banco');
+Route::put('/admin/update/{id}', [App\Http\Controllers\BancoController::class, 'updateBanco'])->name('update');
+Route::get('/admin/delete-banco/{id}', [App\Http\Controllers\BancoController::class, 'destroy'])->name('destroy');
+
 
 
 
