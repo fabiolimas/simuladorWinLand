@@ -12,6 +12,11 @@ body{
 .row{
     margin: 0;
 }
+
+tbody img {
+    width: 80px;
+    border-radius: 7px;
+}
 .container{
     padding: 70px 0;
 
