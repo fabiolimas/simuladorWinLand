@@ -16,6 +16,7 @@
     <tr>
     <th>Logo</th>
     <th>Banco</th>
+    <th>Juros ao Ano</th>
     <th>Status</th>
     <th>Ações</th>
 
@@ -26,6 +27,7 @@
             <tr>
                 <td><img src="/img/logos/{{$banco->logo}}"></td>
                 <td>{{$banco->nome}}</td>
+                <td>{{$banco->taxa_juros_ano}}%</td>
                 <td>Ativo</td>
                 <td><a href="/admin/edit-banco/{{$banco->id}}"><button type="button" class="btn btn-success" title="Editar"><i class="fa fa-edit"></i></button></a> | <a href="/admin/deleteBanco/{{$banco->id}}"><button type="button" class="btn btn-dark" title="Excluir"><i class="fas fa-trash"></i></button></a></td>
             </tr>
