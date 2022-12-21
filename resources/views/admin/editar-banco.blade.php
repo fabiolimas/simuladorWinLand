@@ -61,10 +61,13 @@
         </div>
         <div class="form-group">
             <label for="correcao" >Correção:</label>
-            <select name="correcao" id="correcao" class="form-control" required>
-                <option value="{{$banco->correcao}}">{{$banco->correcao}}</option>
-                <option value="TR">TR</option>
-                <option value="Poupança">Poupança</option>
+            <select name="correcaos_id" id="correcao" class="form-control" required>
+
+
+                <option value="{{$banco->idCorrecao}}">{{$banco->nomeCorrecao}}</option>
+                @foreach($correcoes as $correcao)
+                    <option value="{{$correcao->id}}">{{$correcao->nome}}</option>
+                @endforeach
 
             </select>
         </div>

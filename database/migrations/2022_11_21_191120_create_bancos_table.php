@@ -16,7 +16,6 @@ class CreateBancosTable extends Migration
         Schema::create('bancos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('correcao');
             $table->string('tabela');
             $table->double('taxa_juros_mes');
             $table->double('taxa_juros_ano');

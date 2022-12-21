@@ -53,8 +53,10 @@
             <label for="correcao" >Correção:</label>
             <select name="correcao" id="correcao" class="form-control" required>
                 <option value="">Selecione um tipo</option>
-                <option value="TR">TR</option>
-                <option value="Poupança">Poupança</option>
+                @foreach($correcoes as $correcao)
+
+                    <option value="{{$correcao->id}}">{{$correcao->nome}}</option>
+                @endforeach
 
             </select>
         </div>

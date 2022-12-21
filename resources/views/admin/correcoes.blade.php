@@ -3,7 +3,7 @@
 @section('title', 'Correções')
 
 @section('content_header')
-<h1><i class="fas fa-university"></i>Correções</h1>
+<h1><i class="fas fa-university mb-3"></i>Correções</h1>
      <div id="novaCorrecao"><a href="/admin/correcao" class="btn btn-success novo"><i class="fas fa-plus-circle"></i>Novo</a></div>
      <hr>
 @stop
@@ -26,7 +26,7 @@
             <tr>
 
                 <td>{{$correcao->nome}}</td>
-                <td><a href="/admin/edit-correcao/{{$correcao->id}}"><button type="button" class="btn btn-success" title="Editar"><i class="fa fa-edit"></i></button></a> | <a href="/admin/delete-correcao/{{$correcao->id}}"><button type="button" class="btn btn-dark" title="Excluir"><i class="fas fa-trash"></i></button></a></td>
+                <td><a href="/admin/delete-correcao/{{$correcao->id}}"><button type="button" class="btn btn-dark" title="Excluir"><i class="fas fa-trash"></i></button></a></td>
             </tr>
         @endforeach
     @endif

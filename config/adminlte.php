@@ -322,7 +322,13 @@ return [
         [
             'text' => 'Correções',
             'url'  => 'admin/correcoes',
-            'icon' => 'fas fa-university',
+            'icon' => 'fas fa-hand-holding-usd',
+        ],
+        ['header' => 'Tabelas'],
+        [
+            'text' => 'Tabelas',
+            'url'  => 'admin/tabelas',
+            'icon' => 'fas fa-funnel-dollar',
         ],
       /*  [
             'text' => 'change_password',

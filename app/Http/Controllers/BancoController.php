@@ -11,12 +11,15 @@ class BancoController extends Controller
    public function index(){
     $bancos=Banco::all();
 
+
+
     return view('admin.bancos', compact('bancos'));
    }
 
    public function create(){
+    $correcoes=Correcao::all();
 
-    return view('admin.banco');
+    return view('admin.banco', compact('correcoes'));
    }
 
    public function storeBanco(Request $request){
@@ -24,13 +27,13 @@ class BancoController extends Controller
         $banco = new Banco();
 
         $banco->nome=$request->nome;
-        $banco->correcao=$request->correcao;
         $banco->taxa_juros_mes=0;
         $banco->taxa_juros_ano=$request->taxa_juros_ano;
         $banco->cet=$request->cet;
         $banco->status=1;
         $banco->tipo_credito=$request->tipo_credito;
         $banco->tabela=$request->tabela;
+        $banco->correcaos_id=$request->correcao;
 
     /*upload logo */
 
@@ -50,10 +53,16 @@ class BancoController extends Controller
    }
 
    public function editBanco($id){
-    $banco=Banco::findOrFail($id);
+
+    $banco=Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
+        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'correcaos.id as idCorrecao')
+    ->first();
+
+    $correcoes=Correcao::all();
 
 
-    return view('admin.editar-banco', compact('banco'));
+
+    return view('admin.editar-banco', compact('banco','correcoes'));
    }
 
    public function updateBanco(Request $request){

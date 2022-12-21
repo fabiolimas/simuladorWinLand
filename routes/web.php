@@ -33,11 +33,14 @@ Route::get('/admin/edit-banco/{id}', [BancoController::class, 'editBanco'])->nam
 Route::put('/admin/update/{id}', [BancoController::class, 'updateBanco'])->name('update');
 Route::get('/admin/delete-banco/{id}', [BancoController::class, 'destroy'])->name('destroy');
 
-/*Correçõ*/
+/*Correções*/
 Route::get('/admin/correcoes',[BancoController::class, 'correcoes'])->name('correcoes');
 Route::get('/admin/correcao',[BancoController::class, 'createCorrecao'])->name('nova-correcao');
 Route::post('/admin/correcao',[BancoController::class, 'storeCorrecao'])->name('store-correcao');
 Route::get('/admin/delete-correcao/{id}', [BancoController::class, 'destroyCorrecao'])->name('destroy-correcao');
+
+/*Tabelas*/
+Route::get('/admin/tabelas',[BancoController::class, 'tabelas'])->name('tabelas');
 /*simulador*/
 Route::get('/simulador', [SimuladorController::class,'index'])->name('simulador1');
 Route::get('/simulador-garantia', [SimuladorController::class,'index2'])->name('simulador2');
