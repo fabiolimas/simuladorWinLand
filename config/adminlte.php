@@ -318,6 +318,12 @@ return [
             'url'  => 'admin/bancos',
             'icon' => 'fas fa-university',
         ],
+        ['header' => 'Correções'],
+        [
+            'text' => 'Correções',
+            'url'  => 'admin/correcoes',
+            'icon' => 'fas fa-university',
+        ],
       /*  [
             'text' => 'change_password',
             'url'  => 'admin/settings',

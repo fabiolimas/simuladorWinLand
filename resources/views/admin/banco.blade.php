@@ -41,6 +41,15 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="tipo_credito" >Tipo de Crédito:</label>
+            <select name="tipo_credito" id="tipo_credito" class="form-control" required>
+                <option value="">Selecione um tipo</option>
+                <option value="0">Imóvel</option>
+                <option value="1">Auto</option>
+
+            </select>
+        </div>
+        <div class="form-group">
             <label for="correcao" >Correção:</label>
             <select name="correcao" id="correcao" class="form-control" required>
                 <option value="">Selecione um tipo</option>

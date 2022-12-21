@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banco;
+use App\Models\Correcao;
 use Illuminate\Http\Request;
 
 class BancoController extends Controller
@@ -28,6 +29,7 @@ class BancoController extends Controller
         $banco->taxa_juros_ano=$request->taxa_juros_ano;
         $banco->cet=$request->cet;
         $banco->status=1;
+        $banco->tipo_credito=$request->tipo_credito;
         $banco->tabela=$request->tabela;
 
     /*upload logo */
@@ -64,11 +66,14 @@ class BancoController extends Controller
         $extensao=$imagem->extension();
         $imagemName=md5($imagem->getClientOriginalName(). strtotime("now").".".$extensao);
 
-        $imagem->move(public_path('img/logos'), $imagemName);
+        $imagem->move(public_path('img/logos/'), $imagemName);
+
         $data['logo']=$imagemName;
 
 
+
     }
+
     Banco::findOrFail($request->id)->update($data);
 
 
@@ -82,6 +87,40 @@ class BancoController extends Controller
     Banco::findOrFail($id)->delete();
 
         return redirect('/admin/bancos')->with('msg', 'Banco deletado com sucesso');
+
+   }
+
+   /*Correções*/
+
+   public function correcoes(){
+
+    $correcoes=Correcao::all();
+    return view('admin.correcoes', compact('correcoes'));
+   }
+
+   public function createCorrecao(Request $request){
+
+
+        return view('admin.correcao');
+
+   }
+
+   public function storeCorrecao(Request $request){
+
+    $correcao= new Correcao();
+
+
+    $correcao->nome=$request->nome;
+    $correcao->save();
+
+    return redirect()->route('correcoes');
+
+}
+public function destroyCorrecao($id){
+
+    Correcao::findOrFail($id)->delete();
+
+        return redirect()->route('correcoes')->with('msg', 'Correcao deletada com sucesso');
 
    }
 }

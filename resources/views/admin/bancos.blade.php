@@ -16,6 +16,7 @@
     <tr>
     <th>Logo</th>
     <th>Banco</th>
+    <th>Tipo de Crédito</th>
     <th>Status</th>
     <th>Ações</th>
 
@@ -26,8 +27,16 @@
             <tr>
                 <td><img src="/img/logos/{{$banco->logo}}"></td>
                 <td>{{$banco->nome}}</td>
+                @switch($banco->tipo_credito)
+                    @case(0)
+                    <td>Imóvel</td>
+                    @break
+                    @case(1)
+                    <td>Auto</td>
+                    @break
+                @endswitch
                 <td>Ativo</td>
-                <td><a href="/admin/edit-banco/{{$banco->id}}"><button type="button" class="btn btn-success" title="Editar"><i class="fa fa-edit"></i></button></a> | <a href="/admin/deleteBanco/{{$banco->id}}"><button type="button" class="btn btn-dark" title="Excluir"><i class="fas fa-trash"></i></button></a></td>
+                <td><a href="/admin/edit-banco/{{$banco->id}}"><button type="button" class="btn btn-success" title="Editar"><i class="fa fa-edit"></i></button></a> | <a href="/admin/delete-banco/{{$banco->id}}"><button type="button" class="btn btn-dark" title="Excluir"><i class="fas fa-trash"></i></button></a></td>
             </tr>
         @endforeach
 @stop

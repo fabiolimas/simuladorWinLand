@@ -25,7 +25,7 @@
         @csrf
         @method('put')
         <div class="form-group">
-            <label for="imagae">Logo:</label>
+            <label for="image">Logo:</label>
             <input type="file" class="form-control" name="logo" id="image" value="{{$banco->logo}}">
         </div>
         <div class="form-group">
@@ -38,6 +38,24 @@
                 <option value="{{$banco->tabela}}">{{$banco->tabela}}</option>
                 <option value="Price">Price</option>
                 <option value="Sac">SAC</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="tipo_credito" >Tipo de Crédito:</label>
+            <select name="tipo_credito" id="tipo_credito" class="form-control" required>
+                @switch($banco->tipo_credito)
+                    @case(0)
+                    <option value="{{$banco->tipo_credito}}">Imóvel</option>
+                    @break
+
+                    @case(1)
+                    <option value="{{$banco->tipo_credito}}">Auto</option>
+                    @break
+                @endswitch
+
+                <option value="0">Imóvel</option>
+                <option value="1">Auto</option>
 
             </select>
         </div>
