@@ -34,7 +34,7 @@ class BancoController extends Controller
         $banco->cet=$request->cet;
         $banco->status=1;
         $banco->tipo_credito=$request->tipo_credito;
-        $banco->tabela=$request->tabela;
+        $banco->tabelas_id=$request->tabela;
         $banco->correcaos_id=$request->correcao;
 
     /*upload logo */
@@ -57,15 +57,16 @@ class BancoController extends Controller
    public function editBanco($id){
 
     $banco=Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
-    ->join('tabelas','tabelas.id','bancos.tabela_id')
-        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'correcaos.id as idCorrecao','tabela.id as idTabela', 'tabela.nome as nomeTabela')
+    ->join('tabelas','tabelas.id','bancos.tabelas_id')
+        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'correcaos.id as idCorrecao','tabelas.id as idTabela', 'tabelas.nome as nomeTabela')
     ->first();
 
     $correcoes=Correcao::all();
+    $tabelas=Tabela::all();
 
 
 
-    return view('admin.editar-banco', compact('banco','correcoes'));
+    return view('admin.editar-banco', compact('banco','correcoes', 'tabelas'));
    }
 
    public function updateBanco(Request $request){

@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-7 texto">
                     <p class="subtitulo">Tipo de imóvel:
-                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="8.85" id="residencial"><label for="residencial" class='residencial'>Residencial</label>
+                        <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="8.85" id="residencial" checked><label for="residencial" class='residencial'>Residencial</label>
                         <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="9.5" id="comercial"><label for="comercial" class='comercial'>Comercial</label>
                         <input class="form-check-input ms-5 tipoImovel" type="radio" name="tipoImovel" value="8.5" id="terreno"><label for="terreno" class='terreno'>Terreno</label>
 
