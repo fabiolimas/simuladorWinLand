@@ -35,9 +35,10 @@
         <div class="form-group">
             <label for="tabela" >Tabela:</label>
             <select name="tabela" id="tabela" class="form-control" required>
-                <option value="{{$banco->tabela}}">{{$banco->tabela}}</option>
-                <option value="Price">Price</option>
-                <option value="Sac">SAC</option>
+                <option value="{{$banco->idTabela}}">{{$banco->nomeTabela}}</option>
+                @foreach($tabelas as $tabela)
+                    <option value="{{$tabela->id}}">{{$tabela->nome}}</option>
+                @endforeach
 
             </select>
         </div>

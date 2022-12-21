@@ -35,8 +35,10 @@
             <label for="tabela" >Tabela:</label>
             <select name="tabela" id="tabela" class="form-control" required>
                 <option value="">Selecione um tipo</option>
-                <option value="Price">Price</option>
-                <option value="Sac">SAC</option>
+                @foreach($tabelas as $tabela)
+
+                <option value="{{$tabela->id}}">{{$tabela->nome}}</option>
+            @endforeach
 
             </select>
         </div>

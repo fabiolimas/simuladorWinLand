@@ -41,6 +41,9 @@ Route::get('/admin/delete-correcao/{id}', [BancoController::class, 'destroyCorre
 
 /*Tabelas*/
 Route::get('/admin/tabelas',[BancoController::class, 'tabelas'])->name('tabelas');
+Route::get('/admin/tabela',[BancoController::class, 'createTabela'])->name('nova-tabela');
+Route::post('/admin/tabela',[BancoController::class, 'storeTabela'])->name('store-tabela');
+Route::get('/admin/delete-tabela/{id}', [BancoController::class, 'destroyTabela'])->name('destroy-tabela');
 /*simulador*/
 Route::get('/simulador', [SimuladorController::class,'index'])->name('simulador1');
 Route::get('/simulador-garantia', [SimuladorController::class,'index2'])->name('simulador2');

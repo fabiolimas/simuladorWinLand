@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banco;
+use App\Models\Tabela;
 use App\Models\Correcao;
 use Illuminate\Http\Request;
 
@@ -18,8 +19,9 @@ class BancoController extends Controller
 
    public function create(){
     $correcoes=Correcao::all();
+    $tabelas=Tabela::all();
 
-    return view('admin.banco', compact('correcoes'));
+    return view('admin.banco', compact('correcoes', 'tabelas'));
    }
 
    public function storeBanco(Request $request){
@@ -55,7 +57,8 @@ class BancoController extends Controller
    public function editBanco($id){
 
     $banco=Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
-        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'correcaos.id as idCorrecao')
+    ->join('tabelas','tabelas.id','bancos.tabela_id')
+        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'correcaos.id as idCorrecao','tabela.id as idTabela', 'tabela.nome as nomeTabela')
     ->first();
 
     $correcoes=Correcao::all();
@@ -132,4 +135,37 @@ public function destroyCorrecao($id){
         return redirect()->route('correcoes')->with('msg', 'Correcao deletada com sucesso');
 
    }
+
+   /*tabelas*/
+
+   public function tabelas(){
+
+    $tabelas=Tabela::all();
+    return view('admin.tabelas', compact('tabelas'));
+   }
+   public function destroyTabela($id){
+
+    Tabela::findOrFail($id)->delete();
+
+        return redirect()->route('tabelas')->with('msg', 'Tabela deletada com sucesso');
+
+   }
+
+   public function createTabela(Request $request){
+
+
+        return view('admin.tabela');
+
+   }
+   public function storeTabela(Request $request){
+
+    $tabela= new Tabela();
+
+
+    $tabela->nome=$request->nome;
+    $tabela->save();
+
+    return redirect()->route('tabelas');
+
+}
 }
