@@ -28,8 +28,9 @@ Route::get('/credito-com-garantia', function(){
 Route::get('/admin/bancos',[BancoController::class, 'index'])->name('bancos');
 Route::get('/admin/banco',[BancoController::class, 'create'])->name('novo-banco');
 Route::post('/admin/banco',[BancoController::class, 'storeBanco'])->name('store-banco');
-
-
+Route::get('/admin/edit-banco/{id}',[BancoController::class, 'editBanco'])->name('edit-banco');
+Route::PUT('/admin/updateBanco/{id}',[BancoController::class, 'updateBanco'])->name('edit-banco');
+Route::get('/admin/deleteBanco/{id}', [BancoController::class, 'destroyBanco'])->name('delete-banco');
 
 Route::get('/simulador', [SimuladorController::class,'index'])->name('simulador1');
 Route::get('/simulador-garantia', [SimuladorController::class,'index2'])->name('simulador2');

@@ -77,7 +77,12 @@ public function storeBancos(){
 
     }*/
 
+    public function editBanco($id){
+        $banco= Banco::findOrFail($id);
 
+
+         return view('admin.editbanche', compact('banco'));
+     }
 
 
 }

@@ -90,7 +90,7 @@
                                         <th scope="col"> Juros a.a.</th>
                                         <th scope="col"> CET anual</th>
                                         <th scope="col"> 1ª Parcela</th>
-                                        <th scope="col"> 240ª Parcela</th>
+                                        <!--<th scope="col"> 240ª Parcela</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -105,7 +105,7 @@
                                             <!--<td id="jurosmes{{$loop->index+1}}">{{ number_format($result->taxa_juros_mes, 2, ',', '.') }}</td>-->
                                             <td id="cet{{$loop->index+1}}">{{$result->cet}}%</td>
                                             <td id="parcela{{$loop->index+1}}"></td>
-                                            <td id="ultimaparcela"></td>
+                                           <!-- <td id="ultimaparcela"></td>-->
                                         </tr>
                                     @endforeach
                                 </tbody>

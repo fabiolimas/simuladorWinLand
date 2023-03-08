@@ -46,4 +46,40 @@ class BancoController extends Controller
     $banco->save();
     return redirect()->route('bancos');
    }
+
+   public function editBanco($id){
+    $banco= Banco::findOrFail($id);
+
+
+     return view('admin.editbanco', compact('banco'));
+ }
+
+ public function updateBanco(Request $request){
+
+    $data=$request->all();
+
+
+    if($request->hasFile('logo') && $request->file('logo')->isValid()){
+        $imagem=$request->logo;
+        $extensao=$imagem->extension();
+        $imagemName=md5($imagem->getClientOriginalName(). strtotime("now").".".$extensao);
+
+        $imagem->move(public_path('img/logos'), $imagemName);
+        $data['logo']=$imagemName;
+
+
+    }
+    Banco::findOrFail($request->id)->update($data);
+
+
+
+
+     return redirect('/admin/bancos')->with('msg','Banco editado com sucesso!');
+ }
+
+ public function destroyBanco($id){
+    Banco::findOrFail($id)->delete();
+
+    return redirect('/admin/bancos')->with('msg', 'Banco deletado com sucesso');
+}
 }

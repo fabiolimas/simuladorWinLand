@@ -12,7 +12,7 @@ $(document).ready(function () {
     }
     //imovel
     valorImovel.addEventListener('keyup', function () {
-        var financiavel=parseFloat(valorImovel.value*7)/100;
+        var financiavel=parseFloat(valorImovel.value*47)/100;
         var formatoMoeda = financiavel.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
        /* if (valorImovel.value != '') {
             range.disabled = false;
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         range.value = financiavel;
 
-        //$('#val_financiar').attr('min', financiavel);
+        $('#val_financiar').attr('min', financiavel);
         $('#val_financiar').attr('max', valorImovel.value);
 
         var percentRange = range.value / valorImovel.value;
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
             var parcela = document.querySelector("#parcela" + i);
 
-            var totparcela = parseFloat(valor.value / p120.value);
+            var totparcela = parseFloat(range.value / p120.value);
             var jurosano = document.querySelector('#jurosano' + i);
             var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
             var total = totparcela += taxa
@@ -144,7 +144,7 @@ $(document).ready(function () {
 
 
             parcela.innerText = totMoeda;
-            console.log(parcela.innerText = totMoeda);
+
         }
 
     });
@@ -155,7 +155,7 @@ $(document).ready(function () {
         for (i; i <= contador.value; i++) {
             var parcela = document.querySelector("#parcela" + i);
 
-            var totparcela = parseFloat(valor.value / p150.value);
+            var totparcela = parseFloat(range.value / p150.value);
             var jurosano = document.querySelector('#jurosano' + i);
             var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
             var total = totparcela += taxa
@@ -175,7 +175,7 @@ $(document).ready(function () {
 
             var parcela = document.querySelector("#parcela" + i);
 
-            var totparcela = parseFloat(valor.value / p180.value);
+            var totparcela = parseFloat(range.value / p180.value);
             var jurosano = document.querySelector('#jurosano' + i);
             var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
             var total = totparcela += taxa
@@ -192,7 +192,7 @@ $(document).ready(function () {
         for (i; i <= contador.value; i++) {
             var parcela = document.querySelector("#parcela" + i);
 
-            var totparcela = parseFloat(valor.value / p240.value);
+            var totparcela = parseFloat(range.value / p240.value);
             var jurosano = document.querySelector('#jurosano' + i);
             var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
             var total = totparcela += taxa
