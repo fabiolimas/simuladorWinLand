@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Novo Banco')
+@section('title', 'Editar Banco')
 
 @section('content_header')
-<h1><i class="fas fa-university"></i> Novo Bancos</h1>
+<h1><i class="fas fa-university"></i> Editar Banco</h1>
 
      <hr>
 @stop
@@ -21,31 +21,40 @@
 
 
     </div>
-    <form action="/admin/banco" method="post" enctype="multipart/form-data">
+    <form action="/admin/update/{{$banco->id}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="form-group">
-            <label for="imagae">Logo:</label>
-            <input type="file" class="form-control" name="logo" id="image" placeholder="Logo" required>
+            <label for="image">Logo:</label>
+            <input type="file" class="form-control" name="logo" id="image" value="{{$banco->logo}}">
         </div>
         <div class="form-group">
             <label for="nome">Instituição:</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da instituição" required>
+            <input type="text" class="form-control" name="nome" id="nome" value="{{$banco->nome}}">
         </div>
         <div class="form-group">
             <label for="tabela" >Tabela:</label>
             <select name="tabela" id="tabela" class="form-control" required>
-                <option value="">Selecione um tipo</option>
+                <option value="{{$banco->idTabela}}">{{$banco->nomeTabela}}</option>
                 @foreach($tabelas as $tabela)
-
-                <option value="{{$tabela->id}}">{{$tabela->nome}}</option>
-            @endforeach
+                    <option value="{{$tabela->id}}">{{$tabela->nome}}</option>
+                @endforeach
 
             </select>
         </div>
         <div class="form-group">
             <label for="tipo_credito" >Tipo de Crédito:</label>
             <select name="tipo_credito" id="tipo_credito" class="form-control" required>
-                <option value="">Selecione um tipo</option>
+                @switch($banco->tipo_credito)
+                    @case(0)
+                    <option value="{{$banco->tipo_credito}}">Imóvel</option>
+                    @break
+
+                    @case(1)
+                    <option value="{{$banco->tipo_credito}}">Auto</option>
+                    @break
+                @endswitch
+
                 <option value="0">Imóvel</option>
                 <option value="1">Auto</option>
 
@@ -53,34 +62,29 @@
         </div>
         <div class="form-group">
             <label for="correcao" >Correção:</label>
-            <select name="correcao" id="correcao" class="form-control" required>
-                <option value="">Selecione um tipo</option>
-<<<<<<< HEAD
-                <option value="TR">TR</option>
-                <option value="Poupança">Poupança</option>
-                <option value="Prefixada">Prefixada</option>
-=======
-                @foreach($correcoes as $correcao)
+            <select name="correcaos_id" id="correcao" class="form-control" required>
 
+
+                <option value="{{$banco->idCorrecao}}">{{$banco->nomeCorrecao}}</option>
+                @foreach($correcoes as $correcao)
                     <option value="{{$correcao->id}}">{{$correcao->nome}}</option>
                 @endforeach
->>>>>>> b753602b4b2d05b433b0343c76ba39d0c6ec834e
 
             </select>
         </div>
 
         <div class="form-group">
             <label for="taxa_juros_ano">Juro ao ano:</label>
-            <input type="number" step="any" class="form-control"  name="taxa_juros_ano" id="taxa_juros_ano" placeholder="Taxa de juros ao ano" required>
+            <input type="number" step="any" class="form-control"  name="taxa_juros_ano" id="taxa_juros_ano" value="{{$banco->taxa_juros_ano}}">
         </div>
         <div class="form-group">
             <label for="cet">CET anual:</label>
-            <input type="number" step="any" class="form-control"  name="cet" id="cet" placeholder="CET anual" required>
+            <input type="number" step="any" class="form-control"  name="cet" id="cet" value="{{$banco->taxa_juros_ano}}">
         </div>
 
 
 
-        <input type="submit" class="btn btn-primary" value="Cadastrar">
+        <input type="submit" class="btn btn-primary" value="Editar">
 
     </form>
     </div>

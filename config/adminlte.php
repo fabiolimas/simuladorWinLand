@@ -318,6 +318,18 @@ return [
             'url'  => 'admin/bancos',
             'icon' => 'fas fa-university',
         ],
+        ['header' => 'Gerenciar Correções'],
+        [
+            'text' => 'Correções',
+            'url'  => 'admin/correcoes',
+            'icon' => 'fas fa-hand-holding-usd',
+        ],
+        ['header' => 'Gerenciar Tabelas'],
+        [
+            'text' => 'Tabelas',
+            'url'  => 'admin/tabelas',
+            'icon' => 'fas fa-funnel-dollar',
+        ],
       /*  [
             'text' => 'change_password',
             'url'  => 'admin/settings',

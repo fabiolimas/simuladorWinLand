@@ -8,18 +8,18 @@ $(document).ready(function () {
     var entrada=document.querySelector('#val_entrada');
     //evento do valor do imovel
     if (valorImovel.value == '') {
-       // range.disabled = true;
+       range.disabled = true;
     }
     //imovel
     valorImovel.addEventListener('keyup', function () {
         var financiavel=parseFloat(valorImovel.value*47)/100;
         var formatoMoeda = financiavel.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-       /* if (valorImovel.value != '') {
+       if (valorImovel.value != '') {
             range.disabled = false;
         } else {
             range.disabled = true;
 
-        }*/
+        }
 
         range.value = financiavel;
 

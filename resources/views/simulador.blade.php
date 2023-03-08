@@ -99,8 +99,8 @@
 
                                         <tr>
                                             <th scope="row"><img src="/img/logos/{{ $result->logo }}"></th>
-                                            <td>{{ $result->tabela }}</td>
-                                            <td>{{$result->correcao}}</td>
+                                            <td>{{ $result->nomeTabela }}</td>
+                                            <td>{{$result->nomeCorrecao}}</td>
                                             <td id="jurosano{{$loop->index+1}}">{{ number_format($result->taxa_juros_ano, 2, ',', '.') }}%</td>
                                             <!--<td id="jurosmes{{$loop->index+1}}">{{ number_format($result->taxa_juros_mes, 2, ',', '.') }}</td>-->
                                             <td id="cet{{$loop->index+1}}">{{$result->cet}}%</td>

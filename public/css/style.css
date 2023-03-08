@@ -4,13 +4,21 @@ body{
     font-family:'Roboto', sans-serif;
     background-color: #0e0b0b;
     /*height: 100vh;*/
+
      background-image: url(/img/fundo.png);
+     background-repeat: no-repeat;
+     background-size: cover;
 
 }
 
 
 .row{
     margin: 0;
+}
+
+tbody img {
+    width: 80px;
+    border-radius: 7px;
 }
 .container{
     padding: 70px 0;

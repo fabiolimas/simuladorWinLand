@@ -12,7 +12,11 @@ class SimuladorController extends Controller
         $valorImovel=$request->val_imovel;
         $valRange=$request->val_financiar;
 
-        $bancos = Banco::where('status',1)
+        $bancos = Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
+        ->join('tabelas','tabelas.id','bancos.tabelas_id')
+        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'tabelas.nome as nomeTabela')
+        ->where('status',1)
+        ->where('tipo_credito',0)
         ->get();
 
 
@@ -27,7 +31,11 @@ class SimuladorController extends Controller
     $valorImovel=$request->val_imovel;
     $valRange=$request->val_financiar;
     $valEntrada=$request->val_entrada;
-    $bancos = Banco::where('status',1)
+    $bancos = Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
+        ->join('tabelas','tabelas.id','bancos.tabelas_id')
+        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'tabelas.nome as nomeTabela')
+        ->where('status',1)
+    ->where('tipo_credito',1)
     ->get();
 
 
