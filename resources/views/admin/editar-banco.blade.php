@@ -19,7 +19,6 @@
         <div class="content col-md-8">
         <div class="row destaque">
 
-
     </div>
     <form action="/admin/update/{{$banco->id}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -34,7 +33,7 @@
         </div>
         <div class="form-group">
             <label for="tabela" >Tabela:</label>
-            <select name="tabela" id="tabela" class="form-control" required>
+            <select name="tabelas_id" id="tabela" class="form-control" required>
                 <option value="{{$banco->idTabela}}">{{$banco->nomeTabela}}</option>
                 @foreach($tabelas as $tabela)
                     <option value="{{$tabela->id}}">{{$tabela->nome}}</option>
@@ -74,8 +73,8 @@
         </div>
 
         <div class="form-group">
-            <label for="taxa_juros_ano">Juro ao ano:</label>
-            <input type="number" step="any" class="form-control"  name="taxa_juros_ano" id="taxa_juros_ano" value="{{$banco->taxa_juros_ano}}">
+            <label for="taxa_juros_ano">Juro ao mes:</label>
+            <input type="number" step="any" class="form-control"  name="taxa_juros_mes" id="taxa_juros_ano" value="{{$banco->taxa_juros_mes}}">
         </div>
         <div class="form-group">
             <label for="cet">CET anual:</label>

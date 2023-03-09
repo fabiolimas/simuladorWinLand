@@ -55,23 +55,17 @@
             <label for="correcao" >Correção:</label>
             <select name="correcao" id="correcao" class="form-control" required>
                 <option value="">Selecione um tipo</option>
-<<<<<<< HEAD
-                <option value="TR">TR</option>
-                <option value="Poupança">Poupança</option>
-                <option value="Prefixada">Prefixada</option>
-=======
                 @foreach($correcoes as $correcao)
 
                     <option value="{{$correcao->id}}">{{$correcao->nome}}</option>
                 @endforeach
->>>>>>> b753602b4b2d05b433b0343c76ba39d0c6ec834e
 
             </select>
         </div>
 
         <div class="form-group">
-            <label for="taxa_juros_ano">Juro ao ano:</label>
-            <input type="number" step="any" class="form-control"  name="taxa_juros_ano" id="taxa_juros_ano" placeholder="Taxa de juros ao ano" required>
+            <label for="taxa_juros_ano">Juro ao mes:</label>
+            <input type="number" step="any" class="form-control"  name="taxa_juros_mes" id="taxa_juros_ano" placeholder="Taxa de juros ao ano" required>
         </div>
         <div class="form-group">
             <label for="cet">CET anual:</label>

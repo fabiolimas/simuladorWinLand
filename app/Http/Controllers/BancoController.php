@@ -29,8 +29,8 @@ class BancoController extends Controller
         $banco = new Banco();
 
         $banco->nome=$request->nome;
-        $banco->taxa_juros_mes=0;
-        $banco->taxa_juros_ano=$request->taxa_juros_ano;
+        $banco->taxa_juros_mes=$request->taxa_juros_mes;
+        $banco->taxa_juros_ano=0;
         $banco->cet=$request->cet;
         $banco->status=1;
         $banco->tipo_credito=$request->tipo_credito;
@@ -55,15 +55,6 @@ class BancoController extends Controller
    }
 
    public function editBanco($id){
-<<<<<<< HEAD
-    $banco= Banco::findOrFail($id);
-
-
-     return view('admin.editbanco', compact('banco'));
- }
-
- public function updateBanco(Request $request){
-=======
 
     $banco=Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
     ->join('tabelas','tabelas.id','bancos.tabelas_id')
@@ -79,7 +70,6 @@ class BancoController extends Controller
    }
 
    public function updateBanco(Request $request){
->>>>>>> b753602b4b2d05b433b0343c76ba39d0c6ec834e
 
     $data=$request->all();
 
@@ -89,13 +79,6 @@ class BancoController extends Controller
         $extensao=$imagem->extension();
         $imagemName=md5($imagem->getClientOriginalName(). strtotime("now").".".$extensao);
 
-<<<<<<< HEAD
-        $imagem->move(public_path('img/logos'), $imagemName);
-        $data['logo']=$imagemName;
-
-
-    }
-=======
         $imagem->move(public_path('img/logos/'), $imagemName);
 
         $data['logo']=$imagemName;
@@ -104,7 +87,6 @@ class BancoController extends Controller
 
     }
 
->>>>>>> b753602b4b2d05b433b0343c76ba39d0c6ec834e
     Banco::findOrFail($request->id)->update($data);
 
 
@@ -113,12 +95,6 @@ class BancoController extends Controller
      return redirect('/admin/bancos')->with('msg','Banco editado com sucesso!');
  }
 
-<<<<<<< HEAD
- public function destroyBanco($id){
-    Banco::findOrFail($id)->delete();
-
-    return redirect('/admin/bancos')->with('msg', 'Banco deletado com sucesso');
-=======
    public function destroy($id){
 
     Banco::findOrFail($id)->delete();
@@ -192,6 +168,5 @@ public function destroyCorrecao($id){
 
     return redirect()->route('tabelas');
 
->>>>>>> b753602b4b2d05b433b0343c76ba39d0c6ec834e
 }
 }

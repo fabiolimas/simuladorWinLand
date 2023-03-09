@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col col-md-6">
                                         <label for="val_financiar" class="form-label">Valor a financiar</label>
-                                        <input type="range" class="form-range" min="0" max="1000000"
+                                        <input type="range" class="form-range" min="0" max="{{$valorImovel}}"
                                             step="0.01" name="val_financiar" id="val_financiar"
                                             value="{{ $valRange }}" disabled>
                                         <div class="row">
@@ -92,7 +92,7 @@
                                         <th scope="col"></th>
                                         <th scope="col">Tabela</th>
                                         <th scope="col">Correção</th>
-                                        <th scope="col"> Juros a.a.</th>
+                                        <th scope="col"> Juros a.m.</th>
                                         <th scope="col"> CET anual</th>
                                         <th scope="col"> 1ª Parcela</th>
                                         <!--<th scope="col"> 240ª Parcela</th>-->
@@ -106,8 +106,9 @@
                                             <th scope="row"><img src="/img/logos/{{ $result->logo }}"></th>
                                             <td>{{ $result->nomeTabela }}</td>
                                             <td>{{$result->nomeCorrecao}}</td>
-                                            <td id="jurosano{{$loop->index+1}}">{{ number_format($result->taxa_juros_ano, 2, ',', '.') }}%</td>
-                                            <!--<td id="jurosmes{{$loop->index+1}}">{{ number_format($result->taxa_juros_mes, 2, ',', '.') }}</td>-->
+                                            <input type="hidden" value="{{$result->taxa_juros_mes}}" id="taxames{{$loop->index+1}}">
+                                            <!--<td id="jurosano{{$loop->index+1}}">{{ number_format($result->taxa_juros_ano, 2, ',', '.') }}%</td>-->
+                                            <td id="jurosmes{{$loop->index+1}}">{{number_format($result->taxa_juros_mes, 2, ',', '.')}}</td>
                                             <td id="cet{{$loop->index+1}}">{{$result->cet}}%</td>
                                             <td id="parcela{{$loop->index+1}}"></td>
                                             <!--<td id="ultimaparcela"></td>-->

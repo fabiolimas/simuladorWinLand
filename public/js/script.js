@@ -10,6 +10,8 @@ $(document).ready(function () {
     if (valorImovel.value == '') {
        range.disabled = true;
     }
+    //formula
+
     //imovel
     valorImovel.addEventListener('keyup', function () {
         var financiavel=parseFloat(valorImovel.value*47)/100;
@@ -23,7 +25,7 @@ $(document).ready(function () {
 
         range.value = financiavel;
 
-        $('#val_financiar').attr('min', financiavel);
+        $('#val_financiar').attr('min', 0);
         $('#val_financiar').attr('max', valorImovel.value);
 
         var percentRange = range.value / valorImovel.value;
@@ -59,7 +61,7 @@ $(document).ready(function () {
 
         range.value = financiavel;
 
-        //$('#val_financiar').attr('min', financiavel);
+        $('#val_financiar').attr('min', 0);
         $('#val_financiar').attr('max', valorImovel.value);
 
         var percentRange = range.value / valorImovel.value;
@@ -94,14 +96,20 @@ $(document).ready(function () {
         var i = 1;
         for (i; i <= contador.value; i++) {
             var parcela = document.querySelector("#parcela" + i);
-            var totparcela = parseFloat(range.value / p60.value);
-            var jurosmes = document.querySelector('#jurosmes' + i);
-            var jurosano = document.querySelector('#jurosano' + i);
-            var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
-            var total = totparcela += taxa
-            var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+            var jurosmes=document.querySelector("#taxames"+i).value;
 
+
+          var valor_parcela= (parseFloat(range.value).toFixed(2) *  (1+(parseFloat(jurosmes).toFixed(2)/100)* Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p60.value))) *parseFloat(jurosmes).toFixed(2)/100) / (1+parseFloat(jurosmes).toFixed(2)/100)* Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p60.value))-1;
+           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+            var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
+            console.log('taxajuros: '+ (1+parseFloat(jurosmes).toFixed(2)/100)+Math.pow(parseFloat(jurosmes).toFixed(2)/100, 48));
+            console.log('potenciado juros: '+Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, 48));
+            console.log('valoremprestimo: '+parseFloat(range.value).toFixed(2));
+            console.log('valor parcela: '+ parseFloat(valor_parcela));
+            console.log('parcelas: '+parseFloat(p60.value));
+
+
         }
 
 
@@ -112,14 +120,10 @@ $(document).ready(function () {
         var i = 1;
         for (i; i <= contador.value; i++) {
             var parcela = document.querySelector("#parcela" + i);
-
-            var totparcela = parseFloat(range.value / p90.value);
-
-            var jurosano = document.querySelector('#jurosano' + i);
-            var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
-            var total = totparcela += taxa
-            var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
+            var jurosmes=document.querySelector("#jurosmes"+i).innerHTML;
+            var taxa_juros_mensal = (1 + parseFloat(jurosmes))**(1/12) - 1;
+            var valor_parcela = (parseFloat(range.value) * taxa_juros_mensal * (1 + taxa_juros_mensal)**parseFloat(p90.value)) / ((1 + taxa_juros_mensal)**parseFloat(p90.value) - 1);
+            var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
 
         }
@@ -133,17 +137,11 @@ $(document).ready(function () {
         for (i; i <= contador.value; i++) {
 
             var parcela = document.querySelector("#parcela" + i);
-
-            var totparcela = parseFloat(range.value / p120.value);
-            var jurosano = document.querySelector('#jurosano' + i);
-            var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
-            var total = totparcela += taxa
-            var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-
-
-
-            parcela.innerText = totMoeda;
+            var jurosmes=document.querySelector("#jurosmes"+i).innerHTML;
+            var taxa_juros_mensal = (1 + parseFloat(jurosmes))**(1/12) - 1;
+            var valor_parcela = (parseFloat(range.value) * taxa_juros_mensal * (1 + taxa_juros_mensal)**parseFloat(p120.value)) / ((1 + taxa_juros_mensal)**parseFloat(p120.value) - 1);
+            var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+            parcela.innerHTML = totMoeda;
 
         }
 
@@ -154,16 +152,10 @@ $(document).ready(function () {
         var i = 1;
         for (i; i <= contador.value; i++) {
             var parcela = document.querySelector("#parcela" + i);
-
-            var totparcela = parseFloat(range.value / p150.value);
-            var jurosano = document.querySelector('#jurosano' + i);
-            var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
-            var total = totparcela += taxa
-            var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-
-
-
+            var jurosmes=document.querySelector("#jurosmes"+i).innerHTML;
+            var taxa_juros_mensal = (1 + parseFloat(jurosmes))**(1/12) - 1;
+            var valor_parcela = (parseFloat(range.value) * taxa_juros_mensal * (1 + taxa_juros_mensal)**parseFloat(p150.value)) / ((1 + taxa_juros_mensal)**parseFloat(p150.value) - 1);
+            var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
         }
 
@@ -174,13 +166,10 @@ $(document).ready(function () {
         for (i; i <= contador.value; i++) {
 
             var parcela = document.querySelector("#parcela" + i);
-
-            var totparcela = parseFloat(range.value / p180.value);
-            var jurosano = document.querySelector('#jurosano' + i);
-            var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
-            var total = totparcela += taxa
-            var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
+            var jurosmes=document.querySelector("#jurosmes"+i).innerHTML;
+            var taxa_juros_mensal = (1 + parseFloat(jurosmes))**(1/12) - 1;
+            var valor_parcela = (parseFloat(range.value) * taxa_juros_mensal * (1 + taxa_juros_mensal)**parseFloat(p180.value)) / ((1 + taxa_juros_mensal)**parseFloat(p180.value) - 1);
+            var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
         }
 
@@ -191,13 +180,10 @@ $(document).ready(function () {
         var i = 1;
         for (i; i <= contador.value; i++) {
             var parcela = document.querySelector("#parcela" + i);
-
-            var totparcela = parseFloat(range.value / p240.value);
-            var jurosano = document.querySelector('#jurosano' + i);
-            var taxa = totparcela * parseFloat(jurosano.innerHTML) / 100;
-            var total = totparcela += taxa
-            var totMoeda = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
+            var jurosmes=document.querySelector("#jurosmes"+i).innerHTML;
+            var taxa_juros_mensal = (1 + parseFloat(jurosmes))**(1/12) - 1;
+            var valor_parcela = (parseFloat(range.value) * taxa_juros_mensal * (1 + taxa_juros_mensal)**parseFloat(p240.value)) / ((1 + taxa_juros_mensal)**parseFloat(p240.value) - 1);
+            var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
         }
 
