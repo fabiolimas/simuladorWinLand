@@ -41,12 +41,12 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class=" col col-mb-6 mb-2">
+                                        <div class=" col col-mb-3 mb-2">
                                             <label for="val_imovel" class="form-label">Valor</label>
                                             <input type="number" class="form-control" step="any" id="val_imovel"
                                                 name="val_imovel" placeholder="R$ 750.000,00" required>
                                         </div>
-                                        <div class=" col col-mb-6 mb-2">
+                                        <div class=" col col-mb-3 mb-2">
                                             <label for="val_entrada" class="form-label">Entrada</label>
                                             <input type="number" class="form-control" step="any" id="val_entrada"
                                                 name="val_entrada" placeholder="R$ 10.000,00" required>
@@ -92,6 +92,41 @@
         });
 
     });
+
+
+    $(document).ready(function(){
+
+var valorTaxa = document.querySelector('.taxa');
+
+var automovel=document.querySelector('#automovel');
+var imovel=document.querySelector('#imovel');
+
+
+var labelautomovel=document.querySelector('.automovel');
+var labelimovel=document.querySelector('.imovel');
+valorTaxa.innerHTML=automovel.value+"% ao ano";
+ //automovel
+ automovel.addEventListener('click', function () {
+    labelautomovel.style.color="red";
+    labelimovel.style.color="#fff";
+    labelimovel.style.textDecoration="none";
+
+    labelautomovel.style.textDecoration="underline";
+
+   valorTaxa.innerHTML=automovel.value+"% ao ano";
+});
+ //imovel
+ imovel.addEventListener('click', function () {
+    labelautomovel.style.color="#fff";
+    labelimovel.style.color="red";
+    labelimovel.style.textDecoration="underline";
+
+    labelautomovel.style.textDecoration="none";
+
+   valorTaxa.innerHTML=imovel.value+"% ao ano";
+});
+
+});
 </script>
 @endsection
 

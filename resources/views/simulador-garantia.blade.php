@@ -66,12 +66,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-md-12 mt-4 ">
-                            <p class="text-start">Valor do imóvel</p>
+                            <p class="title">Valor do imóvel</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row parcelas">
                         <div class="col-md-12 text-start">
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="60" id="p60"><label for="p60">60x</label>
                             <input class="form-check-input ms-5 parcelas" type="radio" name="parcelas" value="90" id="p90"><label for="p90">90x</label>
@@ -83,7 +83,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-9 boxb">
+                <div class="col-md-9 boxb t">
                     <div class="tabela mt-4">
                         <div class="row table-responsive">
                             <table class="table table-borderless">
@@ -94,7 +94,7 @@
                                         <th scope="col">Correção</th>
                                         <th scope="col"> Juros a.m.</th>
                                         <th scope="col"> CET anual</th>
-                                        <th scope="col"> 1ª Parcela</th>
+                                        <th scope="col"> Parcelas</th>
                                         <!--<th scope="col"> 240ª Parcela</th>-->
                                     </tr>
                                 </thead>

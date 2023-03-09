@@ -56,10 +56,7 @@ class BancoController extends Controller
 
    public function editBanco($id){
 
-    $banco=Banco::join('correcaos','correcaos.id','bancos.correcaos_id')
-    ->join('tabelas','tabelas.id','bancos.tabelas_id')
-        ->select('bancos.*', 'correcaos.nome as nomeCorrecao', 'correcaos.id as idCorrecao','tabelas.id as idTabela', 'tabelas.nome as nomeTabela')
-    ->first();
+    $banco=Banco::findorFail($id);
 
     $correcoes=Correcao::all();
     $tabelas=Tabela::all();

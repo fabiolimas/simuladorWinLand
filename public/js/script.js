@@ -98,16 +98,17 @@ $(document).ready(function () {
             var parcela = document.querySelector("#parcela" + i);
             var jurosmes=document.querySelector("#taxames"+i).value;
 
+            var taxa=parseFloat(jurosmes)/100;
 
-          var valor_parcela= (parseFloat(range.value).toFixed(2) *  Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p60.value)) * parseFloat(jurosmes).toFixed(2)/100) / Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p60.value))-1;
-           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+
+            var pot=Math.pow(1+taxa, parseFloat(p60.value));
+
+            var potm=Math.pow(1+taxa, parseFloat(p60.value))-1;
+            var valor_parcela=(pot*parseFloat(range.value)*taxa)/potm;
+
             var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
-            console.log('taxajuros: '+ (1+parseFloat(jurosmes).toFixed(2)/100)+Math.pow(parseFloat(jurosmes).toFixed(2)/100, 48));
-            console.log('potenciado juros: '+Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, 48));
-            console.log('valoremprestimo: '+parseFloat(range.value).toFixed(2));
-            console.log('valor parcela: '+ parseFloat(valor_parcela));
-            console.log('parcelas: '+parseFloat(p60.value));
+
 
 
         }
@@ -122,9 +123,14 @@ $(document).ready(function () {
             var parcela = document.querySelector("#parcela" + i);
             var jurosmes=document.querySelector("#taxames"+i).value;
 
+            var taxa=parseFloat(jurosmes)/100;
 
-          var valor_parcela= (parseFloat(range.value).toFixed(2) *  Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p90.value)) * parseFloat(jurosmes).toFixed(2)/100) / Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p90.value))-1;
-           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+
+            var pot=Math.pow(1+taxa, parseFloat(p90.value));
+
+            var potm=Math.pow(1+taxa, parseFloat(p90.value))-1;
+            var valor_parcela=(pot*parseFloat(range.value)*taxa)/potm;
+
             var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
 
@@ -142,9 +148,14 @@ $(document).ready(function () {
             var parcela = document.querySelector("#parcela" + i);
             var jurosmes=document.querySelector("#taxames"+i).value;
 
+            var taxa=parseFloat(jurosmes)/100;
 
-          var valor_parcela= (parseFloat(range.value).toFixed(2) *  Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p120.value)) * parseFloat(jurosmes).toFixed(2)/100) / Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p120.value))-1;
-           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+
+            var pot=Math.pow(1+taxa, parseFloat(p120.value));
+
+            var potm=Math.pow(1+taxa, parseFloat(p120.value))-1;
+            var valor_parcela=(pot*parseFloat(range.value)*taxa)/potm;
+
             var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
 
@@ -159,9 +170,14 @@ $(document).ready(function () {
             var parcela = document.querySelector("#parcela" + i);
             var jurosmes=document.querySelector("#taxames"+i).value;
 
+            var taxa=parseFloat(jurosmes)/100;
 
-          var valor_parcela= (parseFloat(range.value).toFixed(2) *  Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p150.value)) * parseFloat(jurosmes).toFixed(2)/100) / Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p150.value))-1;
-           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+
+            var pot=Math.pow(1+taxa, parseFloat(p150.value));
+
+            var potm=Math.pow(1+taxa, parseFloat(p150.value))-1;
+            var valor_parcela=(pot*parseFloat(range.value)*taxa)/potm;
+
             var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
         }
@@ -175,9 +191,14 @@ $(document).ready(function () {
             var parcela = document.querySelector("#parcela" + i);
             var jurosmes=document.querySelector("#taxames"+i).value;
 
+            var taxa=parseFloat(jurosmes)/100;
 
-          var valor_parcela= (parseFloat(range.value).toFixed(2) *  Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p180.value)) * parseFloat(jurosmes).toFixed(2)/100) / Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p180.value))-1;
-           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+
+            var pot=Math.pow(1+taxa, parseFloat(p180.value));
+
+            var potm=Math.pow(1+taxa, parseFloat(p180.value))-1;
+            var valor_parcela=(pot*parseFloat(range.value)*taxa)/potm;
+
             var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
         }
@@ -191,9 +212,14 @@ $(document).ready(function () {
             var parcela = document.querySelector("#parcela" + i);
             var jurosmes=document.querySelector("#taxames"+i).value;
 
+            var taxa=parseFloat(jurosmes)/100;
 
-          var valor_parcela= (parseFloat(range.value).toFixed(2) *  Math.pow((1+parseFloat(jurosmes).toFixed(2)/100), parseFloat(p240.value)) * parseFloat(jurosmes).toFixed(2)/100) / Math.pow(1+parseFloat(jurosmes).toFixed(2)/100, parseFloat(p240.value))-1;
-           // var valor_parcela=(parseFloat(range.value)*((1 + taxaJurosMensal)*Math.pow(parseFloat(p60.value)*taxaJurosMensal))/((1 + taxaJurosMensal)* Math.pow(parseFloat(p60.value)*taxaJurosMensal)-1));
+
+            var pot=Math.pow(1+taxa, parseFloat(p240.value));
+
+            var potm=Math.pow(1+taxa, parseFloat(p240.value))-1;
+            var valor_parcela=(pot*parseFloat(range.value)*taxa)/potm;
+
             var totMoeda = valor_parcela.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             parcela.innerHTML = totMoeda;
         }
@@ -219,14 +245,23 @@ $(document).ready(function(){
     var residencial = document.querySelector('#residencial');
     var comercial=document.querySelector('#comercial');
     var terreno=document.querySelector('#terreno');
+    var automovel=document.querySelector('#automovel');
+    var imovel=document.querySelector('#imovel');
+
     var labelresidencial=document.querySelector('.residencial');
     var labelcomercial=document.querySelector('.comercial');
     var labelterreno=document.querySelector('.terreno');
+    var labelautomovel=document.querySelector('.automovel');
+    var labelimovel=document.querySelector('.imovel');
     //residencial
+    valorTaxa.innerHTML=residencial.value+"% ao ano";
     residencial.addEventListener('click', function () {
         labelresidencial.style.color="red";
         labelcomercial.style.color="#fff";
         labelterreno.style.color="#fff";
+        labelterreno.style.textDecoration="none";
+        labelcomercial.style.textDecoration="none";
+        labelresidencial.style.textDecoration="underline";
 
        valorTaxa.innerHTML=residencial.value+"% ao ano";
     });
@@ -236,6 +271,9 @@ $(document).ready(function(){
         labelresidencial.style.color="#fff";
         labelcomercial.style.color="red";
         labelterreno.style.color="#fff";
+        labelresidencial.style.textDecoration="none";
+        labelterreno.style.textDecoration="none";
+        labelcomercial.style.textDecoration="underline";
 
        valorTaxa.innerHTML=comercial.value+"% ao ano";
     });
@@ -245,8 +283,14 @@ $(document).ready(function(){
         labelresidencial.style.color="#fff";
         labelcomercial.style.color="#fff";
         labelterreno.style.color="red";
+        labelterreno.style.textDecoration="underline"
+        labelresidencial.style.textDecoration="none";
+        labelcomercial.style.textDecoration="none";
+
 
        valorTaxa.innerHTML=terreno.value+"% ao ano";
     });
+
+
 
 });

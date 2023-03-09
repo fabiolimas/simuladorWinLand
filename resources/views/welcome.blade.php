@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container box">
-    <div class="row d-flex justify-content-center text-center">
+    <div class="row">
 
         <div class="row">
 
@@ -18,10 +18,10 @@
                     operação e a planejar tudo da melhor maneira.</p>
                     <div class="botoes">
                         <div class="col-md-6">
-                            <a href="/credito-imobiliario" class="btn btn-danger">Crédito Imobiliário <i class="fas fa-angle-double-right"></i></a>
+                            <a href="/credito-imobiliario" class="btn btn-danger position-relative"  >Crédito Imobiliário <img src="/img/double.png" alt=""></a>
                         </div>
                         <div class="col-md-6">
-                            <a href="/credito-com-garantia" class="btn btn-danger">Crédito com garantia <i class="fas fa-angle-double-right"></i></a>
+                            <a href="/credito-com-garantia" class="btn btn-danger position-relative">Crédito com garantia <img src="/img/double.png" alt=""></a>
                         </div>
                     </div>
             </div>

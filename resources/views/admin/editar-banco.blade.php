@@ -34,7 +34,7 @@
         <div class="form-group">
             <label for="tabela" >Tabela:</label>
             <select name="tabelas_id" id="tabela" class="form-control" required>
-                <option value="{{$banco->idTabela}}">{{$banco->nomeTabela}}</option>
+                <option value="{{$banco->tabelas_id}}">Selecione a tabela</option>
                 @foreach($tabelas as $tabela)
                     <option value="{{$tabela->id}}">{{$tabela->nome}}</option>
                 @endforeach
@@ -64,7 +64,7 @@
             <select name="correcaos_id" id="correcao" class="form-control" required>
 
 
-                <option value="{{$banco->idCorrecao}}">{{$banco->nomeCorrecao}}</option>
+                <option value="{{$banco->correcaos_id}}">Selecione a Correção</option>
                 @foreach($correcoes as $correcao)
                     <option value="{{$correcao->id}}">{{$correcao->nome}}</option>
                 @endforeach
